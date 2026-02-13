@@ -105,9 +105,9 @@ jobs:
           cache-to: type=gha,mode=max
           github-token: ${{ secrets.GITHUB_TOKEN }}
           build-args: |
-            TAG_NAME=${{ needs.generate-metadata.outputs.TAG_NAME }}
-            COMMIT_HASH=${{ needs.generate-metadata.outputs.COMMIT_HASH }}
-            BUILD_TIMESTAMP=${{ needs.generate-metadata.outputs.BUILD_TIMESTAMP }}
+            TAG_NAME=${{ needs.metadata.outputs.tag_name }}
+            COMMIT_HASH=${{ needs.metadata.outputs.commit_hash }}
+            BUILD_TIMESTAMP=${{ needs.metadata.outputs.build_timestamp }}
 
   update-release:
     needs: binary
